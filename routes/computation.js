@@ -1,30 +1,17 @@
-const express = require('express')
-const router = express.Router()
+var express = require('express');
+var router = express.Router();
+var value;
+/* GET home page. */
+router.get('/', function(req, res, next) {
+    fake_url = "https://fake.com/path" + req.url
+      const url = new URL(fake_url)
+      const search_params = url.searchParams
+     value =Number(search_params.get("x"))
+    if(value == 0)
+    value=Math.random()
+    res.write("Computes the values for Math.tan and math.sqrt function."+"\n")
+    res.write('Math.tan applied to '+value+" is "+Math.tan(value)+"\n");
+    res.end('Math.sqrt applied to '+value+" is "+Math.sqrt(value));
+ });
 
-router.get('/',(req,res,next) =>{
-    console.log(req.query)
-    
-        
-    if(Object.keys(req.query).length === 0){
-        
-        console.log("entered")
-        let power = Math.random()
-        res.render('computation', {value : `power applied to ${power} is ${Math.pow(power)}`})
-    }
-    else
-    for(let a in req.query)
-    {
-    {
-        
-        console.log(a)
-    res.render('computation', {value : `power applied to ${req.query[a]} is ${Math.pow(req.query[a])}`})
-    }
-}
-
-   
-
-})
-
-
-
-module.exports = router
+module.exports = router;
