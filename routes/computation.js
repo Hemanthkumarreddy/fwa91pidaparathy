@@ -9,7 +9,7 @@ router.get('/',(req,res,next) =>{
         
         console.log("entered")
         let power = Math.random()
-        res.render('computation', {value : `round applied to ${power} is ${Math.pow(power)}`})
+        res.render('computation', {value : `power applied to ${power} is ${Math.pow(power)}`})
     }
     else
     for(let a in req.query)
@@ -17,7 +17,7 @@ router.get('/',(req,res,next) =>{
     {
         
         console.log(a)
-    res.render('computation', {value : `round applied to ${req.query[a]} is ${Math.pow(req.query[a])}`})
+    res.render('computation', {value : `power applied to ${req.query[a]} is ${Math.pow(req.query[a])}`})
     }
 }
 
